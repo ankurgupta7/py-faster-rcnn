@@ -19,6 +19,7 @@ import argparse
 import pprint
 import numpy as np
 import sys
+import pdb
 
 def parse_args():
     """
@@ -67,6 +68,8 @@ def combined_roidb(imdb_names):
         return roidb
 
     roidbs = [get_roidb(s) for s in imdb_names.split('+')]
+    print '****roidbs*****'
+    print roidbs
     roidb = roidbs[0]
     if len(roidbs) > 1:
         for r in roidbs[1:]:
@@ -74,9 +77,15 @@ def combined_roidb(imdb_names):
         imdb = datasets.imdb.imdb(imdb_names)
     else:
         imdb = get_imdb(imdb_names)
+
+    print '****imdb*****'
+    print imdb
+
     return imdb, roidb
 
 if __name__ == '__main__':
+    	
+#    pdb.set_trace()	
     args = parse_args()
 
     print('Called with args:')
@@ -106,7 +115,10 @@ if __name__ == '__main__':
 
     output_dir = get_output_dir(imdb)
     print 'Output will be saved to `{:s}`'.format(output_dir)
-
+    print '***args to train_net caffe***'
+    print (args.solver, output_dir,
+              args.pretrained_model,args.max_iters)
+    print '###########'
     train_net(args.solver, roidb, output_dir,
               pretrained_model=args.pretrained_model,
               max_iters=args.max_iters)
