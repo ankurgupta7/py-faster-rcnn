@@ -88,5 +88,5 @@ if __name__ == '__main__':
     imdb.competition_mode(args.comp_mode)
     if not cfg.TEST.HAS_RPN:
         imdb.set_proposal_method(cfg.TEST.PROPOSAL_METHOD)
-
+    print args.imdb_name
     test_net(net,imdb,max_per_image=args.max_per_image,vis=args.vis)

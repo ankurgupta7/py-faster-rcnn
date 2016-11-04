@@ -68,8 +68,8 @@ def combined_roidb(imdb_names):
         return roidb
 
     roidbs = [get_roidb(s) for s in imdb_names.split('+')]
-    print '****roidbs*****'
-    print roidbs
+    # print '****roidbs*****'
+    # print roidbs
     roidb = roidbs[0]
     if len(roidbs) > 1:
         for r in roidbs[1:]:
@@ -78,8 +78,8 @@ def combined_roidb(imdb_names):
     else:
         imdb = get_imdb(imdb_names)
 
-    print '****imdb*****'
-    print imdb
+    # print '****imdb*****'
+    # print imdb
 
     return imdb, roidb
 

@@ -136,6 +136,7 @@ class RoIDataLayer(caffe.Layer):
                 self._name_to_top_map['bbox_outside_weights'] = idx
                 idx += 1
 
+        print '&^*&^*&^*&^*&^*&^*&^*&*&'
         print 'RoiDataLayer: name_to_top:', self._name_to_top_map
         assert len(top) == len(self._name_to_top_map)
 
